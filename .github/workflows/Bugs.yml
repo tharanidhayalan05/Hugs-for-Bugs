@@ -1,4 +1,4 @@
-name: devops-pipeline
+name: ops-pipeline
 on: workflow_dispatch
 
 jobs:
@@ -15,9 +15,9 @@ jobs:
           echo "${{secrets.my_secret}}" > Hugs-for-Bugs.pem
           chmod 400 Hugs-for-Bugs.pem
       - name: cp app.py
-        run: scp -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem app.py ec2-user@13.203.232.64:/home/ec2-user/
+        run: scp -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem app.py ec2-user@13.203.220.181:/home/ec2-user/
       - name: cp requirements.txt
-        run: scp -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem requirements.txt ec2-user@13.203.232.64:/home/ec2-user/ 
+        run: scp -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem requirements.txt ec2-user@13.203.220.181:/home/ec2-user/ 
       - name: run app
         run: |
-          ssh -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem ec2-user@13.203.232.64 "cd /home/ec2-user && python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt && python3 app.py"
+          ssh -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem ec2-user@13.203.220.181 "cd /home/ec2-user && python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt && python3 app.py"
