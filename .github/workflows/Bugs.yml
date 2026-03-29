@@ -16,7 +16,7 @@ jobs:
           chmod 400 Bugs-key.pem
       - name: cp app.py
         run: scp -o StrictHostKeyChecking=no -i Bugs-key.pem app.py ec2-user@13.203.232.64:/home/ec2-user/
-      - name: cp req.txt
+      - name: cp requirements.txt
         run: scp -o StrictHostKeyChecking=no -i Bugs-key.pem requirements.txt ec2-user@13.203.232.64:/home/ec2-user/ 
       - name: run app
         run: ssh -o StrictHostKeyChecking=no -i Bugs-key.pem ec2-user@13.203.232.64"cd/home/ec2-user && python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt && python3 app.py
