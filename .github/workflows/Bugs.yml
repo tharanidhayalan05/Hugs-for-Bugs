@@ -20,4 +20,4 @@ jobs:
         run: scp -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem requirements.txt ec2-user@13.203.232.64:/home/ec2-user/ 
       - name: run app
         run: |
-          ssh -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem ec2-user@13.203.232.64 "cd /home/ec2-user && python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt && python3 app.py"
+          ssh -o StrictHostKeyChecking=no -i Hugs-for-Bugs.pem ec2-user@13.203.232.64 "cd /Admin/ec2-user && python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt && python3 app.py"
