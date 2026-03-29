@@ -11,7 +11,7 @@ jobs:
           ref: main
 
       - name: get pem file
-        run:
+        run: |
           echo "${{secrets.my_secret}}" > Hugs-for-Bugs.pem
           chmod 400 Hugs-for-Bugs.pem
       - name: cp app.py
